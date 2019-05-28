@@ -19,7 +19,7 @@ function make_query($link, $query)
 
 //Преобразуем то, что отдала нам база в нормальный массив PHP $data:
     for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row) ;
-var_dump($data);
+
     return $data;
 }
 
@@ -145,17 +145,37 @@ $query = 'SELECT family.name AS user_name, family.surname AS user_surname FROM f
  LEFT JOIN family AS rel ON rel.id = family.id WHERE family.consort IS NULL'; //  
 
 // (3)
-$query = 'SELECT DISTINCT family.surname FROM family
- LEFT JOIN family AS rel ON rel.id = family.consort WHERE (rel.address = family.address AND rel.surname = family.surname)';
+ $query = 'SELECT * FROM (
+      SELECT second.name AS user_name, rel.name AS consort_name, second.surname AS user_surname
+      FROM family AS second
+      LEFT JOIN family AS rel ON rel.id = second.consort
+      WHERE (rel.address = second.address AND rel.surname = second.surname)
+) AS first';
 
- $query = 'SELECT DISTINCT family.surname, rel2.name AS family_surname FROM family
- LEFT JOIN family AS rel ON rel.id = family.consort 
- WHERE (rel.address = family.address AND rel.surname = family.surname)';
-
+$families = [];
 $data = make_query($link, $query);
-?>
+foreach ($data as $pair) {
+  ?>
 <pre>
     <?php
-    var_dump($data);
+    $surname = $pair['user_surname'];
+
+    // если уже добавили эту пару
+    if (isset($families[$surname]))
+      continue;
+
+    $consorts['first'] = $pair['user_name'];
+    $consorts['second'] = $pair['consort_name'];
+
+    $families[$surname] = $consorts;
+    ?>
+</pre>
+<?php
+}
+?>
+
+<pre>
+    <?php
+    var_dump($families);
     ?>
 </pre>
