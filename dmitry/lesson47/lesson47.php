@@ -172,10 +172,55 @@ foreach ($data as $pair) {
 </pre>
 <?php
 }
+
+$db_name = 'lesson47'; //имя базы данных
+
+//Соединяемся с базой данных используя наши доступы:
+$link = mysqli_connect($host, $user, $password, $db_name);
+
+//Устанавливаем кодировку (не обязательно, но поможет избежать проблем):
+mysqli_query($link, "SET NAMES 'utf8'");
+
+/**
+ * Урок 47 - 9
+ *  Товар, который может принадлежать нескольким категориям одновременно. Запросы: 
+ (1) достать все товары вместе с их категориями, 
+ (2) достать товар 'Огурец' вместе с его категориями, 
+ (3) достать все товары из категории 'Овощи', 
+ (4) достать все товары, которые принадлежат более чем одной категории.
+ */
+
+// (1)
+$query = 'SELECT product.name AS product_name, category.name AS category_name FROM product
+LEFT JOIN rel ON rel.product_id = product.id
+LEFT JOIN category ON rel.category_id = category.id';
+
+// (2)
+$query = 'SELECT product.name AS product_name, category.name AS category_name FROM product
+ LEFT JOIN rel ON rel.product_id = product.id
+LEFT JOIN category ON rel.category_id = category.id
+WHERE product.name = \'Огурцы\'';
+
+// (3)
+$query = 'SELECT product.name AS product_name, category.name AS category_name FROM product
+ LEFT JOIN rel ON rel.product_id = product.id
+LEFT JOIN category ON rel.category_id = category.id
+WHERE category.name = \'Овощи\'';
+
+// (4)
+$query = 'SELECT * FROM (SELECT sel_product.product_name AS product, COUNT(sel_product.product_name) AS product_count
+FROM (SELECT product.name AS product_name, category.name AS category_name FROM product
+LEFT JOIN rel ON rel.product_id = product.id
+LEFT JOIN category ON rel.category_id = category.id) AS sel_product
+     GROUP BY sel_product.product_name) AS counter
+     WHERE counter.product_count > 1';
+
+
+$data = make_query($link, $query);
 ?>
 
 <pre>
     <?php
-    var_dump($families);
+    var_dump($data);
     ?>
 </pre>
