@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 29 2019 г., 13:47
+-- Время создания: Май 29 2019 г., 23:19
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -42,6 +42,45 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (2, 'Товары для дома'),
 (3, 'Мыло'),
 (4, 'Местные товары');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `interests`
+--
+
+CREATE TABLE `interests` (
+  `id` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `interests`
+--
+
+INSERT INTO `interests` (`id`, `name`) VALUES
+(1, 'Soccer'),
+(2, 'Movies');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `interest_rel`
+--
+
+CREATE TABLE `interest_rel` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `interest_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `interest_rel`
+--
+
+INSERT INTO `interest_rel` (`id`, `user_id`, `interest_id`) VALUES
+(1, 1, 1),
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -87,6 +126,24 @@ INSERT INTO `rel` (`id`, `product_id`, `category_id`) VALUES
 (4, 2, 3),
 (5, 3, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `name`) VALUES
+(1, 'Maxim');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -95,6 +152,18 @@ INSERT INTO `rel` (`id`, `product_id`, `category_id`) VALUES
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `interests`
+--
+ALTER TABLE `interests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `interest_rel`
+--
+ALTER TABLE `interest_rel`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -110,6 +179,12 @@ ALTER TABLE `rel`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -118,6 +193,18 @@ ALTER TABLE `rel`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `interests`
+--
+ALTER TABLE `interests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `interest_rel`
+--
+ALTER TABLE `interest_rel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -130,6 +217,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `rel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

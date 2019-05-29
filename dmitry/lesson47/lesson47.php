@@ -215,6 +215,26 @@ LEFT JOIN category ON rel.category_id = category.id) AS sel_product
      GROUP BY sel_product.product_name) AS counter
      WHERE counter.product_count > 1';
 
+/**
+ * Урок 47 - 10
+ *  Товар, который может принадлежать нескольким категориям одновременно. Запросы:
+Пользователь и его интересы (могут быть одинаковыми у разных пользователей). Запросы:
+ * (1) достать интересы пользователя,
+ * (2) достать всех пользователей с данным интересом.
+ */
+
+// (1)
+$query = 'SELECT *, user.name AS user_name FROM user 
+LEFT JOIN interest_rel ON interest_rel.user_id = user.id
+LEFT JOIN interests ON interest_rel.interest_id = interests.id';
+
+// (2)
+$query = 'SELECT interests.name AS interest, user.name AS user_name FROM interests 
+LEFT JOIN interest_rel ON interest_rel.interest_id = interests.id
+LEFT JOIN user ON interest_rel.user_id = user.id
+WHERE interests.name = \'Soccer\'';
+
+
 
 $data = make_query($link, $query);
 ?>
