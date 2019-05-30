@@ -234,6 +234,56 @@ LEFT JOIN interest_rel ON interest_rel.interest_id = interests.id
 LEFT JOIN user ON interest_rel.user_id = user.id
 WHERE interests.name = \'Soccer\'';
 
+/**
+ * Урок 47 - 11
+ *  Пользователь, товары, покупки пользователей. У товара есть цена, пользователь может купить не один экземпляр товара, а одновременно несколько. Запросы: 
+ (1) вывести пользователей вместе с их покупками, 
+ (2) вывести пользователей вместе с суммами всех их покупок, 
+ (3) найти суммарные покупки на сайте за определенный месяц, 
+ (4) найти суммарные покупки на сайте помесячно (то есть результат будет в таком виде: март 2010 — сумма1, апрель 2010 — сумма2, май 2010 — сумма3 и тд).
+ */
+
+// (1)
+$query = 'SELECT user.name AS user_name, product.name AS product_name FROM user
+LEFT JOIN purchase ON purchase.user_id = user.id
+LEFT JOIN product ON purchase.product_id = product.id';
+
+// (2)
+$query = 'SELECT user.name AS user_name, SUM(product.price) AS all_price  FROM product 
+LEFT JOIN purchase ON product.id = purchase.product_id LEFT JOIN user ON  purchase.user_id = user.id';
+
+
+/**
+ * Урок 47 - 12
+ *  Есть отцы и сыновья. У отца может быть много сыновей. Запросы: 
+ (1) получить всех сыновей пользователя, 
+ (2) получить отца пользователя, 
+ (3) получить дедушку пользователя, 
+ (4) получить внуков пользователя. 
+ */
+
+ // (1)
+$query = 'SELECT fathers.name AS father, f.name AS son FROM fathers
+LEFT JOIN fathers AS f ON f.father_id = fathers.id';
+
+ // (2)
+$query = 'SELECT fathers.name AS father, users.name AS user FROM fathers
+LEFT JOIN fathers AS users ON users.father_id = fathers.id
+WHERE users.name IS NOT NULL';
+
+// (3)
+$query = 'SELECT users.name AS user, grandfa.name AS grandfa FROM fathers AS users
+LEFT JOIN fathers AS fa ON users.father_id = fa.id
+LEFT JOIN fathers AS grandfa ON fa.father_id = grandfa.id
+WHERE grandfa.name IS NOT NULL';
+
+// (4)
+$query = 'SELECT users.name AS grandfather, grandsons.name AS grandson FROM fathers AS grandsons
+LEFT JOIN fathers AS fa ON grandsons.father_id = fa.id
+LEFT JOIN fathers AS users ON fa.father_id = users.id
+WHERE grandsons.name IS NOT NULL AND users.name IS NOT NULL';
+
+
 
 
 $data = make_query($link, $query);
