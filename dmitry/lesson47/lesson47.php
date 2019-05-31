@@ -250,8 +250,38 @@ LEFT JOIN product ON purchase.product_id = product.id';
 
 // (2)
 $query = 'SELECT user.name AS user_name, SUM(product.price) AS all_price  FROM product 
-LEFT JOIN purchase ON product.id = purchase.product_id LEFT JOIN user ON  purchase.user_id = user.id';
+LEFT JOIN purchase ON product.id = purchase.product_id LEFT JOIN user ON  purchase.user_id = user.id
+GROUP BY lesson47.user.name';
 
+// (3)
+$query = 'SELECT user.name AS user_name, SUM(product.price) AS all_price  FROM product 
+LEFT JOIN purchase ON product.id = purchase.product_id LEFT JOIN user ON  purchase.user_id = user.id
+WHERE MONTH(purchase.date) = 5
+GROUP BY lesson47.user.name';
+
+// (4)
+$month = [3 => 'Март 2019', 4 => 'Апрель 2019', 5 => 'Май 2019'];
+foreach ($month as $m => $name) {
+	$query = 'SELECT purchase.date AS purchase_date, SUM(product.price) AS all_price  FROM product 
+LEFT JOIN purchase ON product.id = purchase.product_id 
+WHERE MONTH(purchase.date) = ' . $m . '
+ GROUP BY lesson47.purchase.date';
+	$data = make_query($link, $query);
+	/* - вывод для 11 задачи, закомментил, чтобы он не мешал смотреть на дальнейший вывод
+?>
+
+<pre>
+    <?php
+    foreach ($data as $value) {
+    	 //var_dump($value);
+    	echo $name . ' - ' . $value['all_price'] . '; ';
+    }
+   
+    ?>
+</pre>
+<?php
+}
+*/
 
 /**
  * Урок 47 - 12
@@ -283,7 +313,14 @@ LEFT JOIN fathers AS fa ON grandsons.father_id = fa.id
 LEFT JOIN fathers AS users ON fa.father_id = users.id
 WHERE grandsons.name IS NOT NULL AND users.name IS NOT NULL';
 
-
+/**
+ * Урок 47 - 13
+ *  Море, реки, притоки (притоки делятся на правые и левые). Реки могут быть притоками других рек или впадать прямо в море. Запросы: 
+ (1) получить все реки Черного Моря, 
+ (2) получить все реки Черного Моря вместе с притоками, 
+ (3) получить все притоки реки Днепр, 
+ (4) получить куда впадает данная река (в какую реку или в какое море). 
+ */
 
 
 $data = make_query($link, $query);
