@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 02 2019 г., 09:23
+-- Время создания: Июн 02 2019 г., 21:20
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -108,6 +108,30 @@ INSERT INTO `interest_rel` (`id`, `user_id`, `interest_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `match`
+--
+
+CREATE TABLE `match` (
+  `id` int(11) NOT NULL,
+  `team1_id` int(11) NOT NULL,
+  `team2_id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `score` varchar(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `match`
+--
+
+INSERT INTO `match` (`id`, `team1_id`, `team2_id`, `date`, `score`) VALUES
+(1, 1, 2, '2019-06-01', '2:1'),
+(2, 2, 1, '2019-06-02', '1:1'),
+(3, 3, 4, '2019-05-16', '2:2'),
+(4, 4, 3, '2019-06-14', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `product`
 --
 
@@ -176,6 +200,27 @@ INSERT INTO `rel` (`id`, `product_id`, `category_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `teams`
+--
+
+CREATE TABLE `teams` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`) VALUES
+(1, 'Zenit'),
+(2, 'Spartak'),
+(3, 'Lokomotiv'),
+(4, 'Dinamo');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `user`
 --
 
@@ -202,14 +247,14 @@ INSERT INTO `user` (`id`, `name`) VALUES
 CREATE TABLE `water` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  `flows into` int(11) DEFAULT NULL
+  `flows_into` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `water`
 --
 
-INSERT INTO `water` (`id`, `name`, `flows into`) VALUES
+INSERT INTO `water` (`id`, `name`, `flows_into`) VALUES
 (1, 'Caspian Sea', NULL),
 (2, 'Volga river', 1),
 (3, 'Black Sea', NULL),
@@ -247,6 +292,12 @@ ALTER TABLE `interest_rel`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `match`
+--
+ALTER TABLE `match`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `product`
 --
 ALTER TABLE `product`
@@ -262,6 +313,12 @@ ALTER TABLE `purchase`
 -- Индексы таблицы `rel`
 --
 ALTER TABLE `rel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `teams`
+--
+ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -305,6 +362,12 @@ ALTER TABLE `interest_rel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблицы `match`
+--
+ALTER TABLE `match`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
@@ -321,6 +384,12 @@ ALTER TABLE `purchase`
 --
 ALTER TABLE `rel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `teams`
+--
+ALTER TABLE `teams`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `user`

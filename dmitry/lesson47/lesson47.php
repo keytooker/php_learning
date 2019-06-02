@@ -345,6 +345,45 @@ $query = 'SELECT main_river.name AS main_river, inflow.name AS inflow FROM water
  WHERE inflow.name = \'Volga river\'';
 
 
+/**
+ * Урок 47 - 15
+ Есть сайт с датами футбольных игр. В каждой игре нужно выводить дату игры, первую команду и вторую команду. После того, как игра прошла — нужно выводить еще и счет. Запросы: 
+ (1) получить все игры вместе с командами, 
+ (2) получить все игры с командами за текущий месяц, 
+ (3) получить все игры с командами за предыдущий месяц, 
+ (4) получить все сыгранные игры, 
+ (5) получить все несыгранные игры.
+ */
+
+// (1)
+ $query = 'SELECT team1.name AS team1, team2.name AS team2, `match`.score AS score FROM `match`
+ LEFT JOIN  teams AS team1 ON `match`.`team1_id` = `team1`.`id`
+ LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`';
+
+ // (2)
+ $query = 'SELECT team1.name AS team1, team2.name AS team2, `match`.score AS score, `match`.`date` AS match_date  FROM `match`
+ LEFT JOIN  teams AS team1 ON `match`.`team1_id` = `team1`.`id`
+ LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`
+ WHERE MONTH(`match`.`date`) = MONTH(NOW())';
+
+ // (3)
+ $query = 'SELECT team1.name AS team1, team2.name AS team2, `match`.score AS score, `match`.`date` AS match_date  FROM `match`
+ LEFT JOIN  teams AS team1 ON `match`.`team1_id` = `team1`.`id`
+ LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`
+ WHERE MONTH(`match`.`date`) = MONTH(NOW() - INTERVAL 1 MONTH)';
+
+  // (4)
+ $query = 'SELECT team1.name AS team1, team2.name AS team2, `match`.score AS score, `match`.`date` AS match_date  FROM `match`
+ LEFT JOIN  teams AS team1 ON `match`.`team1_id` = `team1`.`id`
+ LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`
+ WHERE `match`.`date` > NOW()';
+
+   // (5)
+ $query = 'SELECT team1.name AS team1, team2.name AS team2, `match`.score AS score, `match`.`date` AS match_date  FROM `match`
+ LEFT JOIN  teams AS team1 ON `match`.`team1_id` = `team1`.`id`
+ LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`
+ WHERE `match`.`date` < NOW()';
+
 
 $data = make_query($link, $query);
 ?>
