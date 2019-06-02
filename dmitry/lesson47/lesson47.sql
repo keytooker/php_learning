@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 29 2019 г., 23:19
+-- Время создания: Июн 02 2019 г., 09:23
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -42,6 +42,29 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (2, 'Товары для дома'),
 (3, 'Мыло'),
 (4, 'Местные товары');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fathers`
+--
+
+CREATE TABLE `fathers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL,
+  `father_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `fathers`
+--
+
+INSERT INTO `fathers` (`id`, `name`, `father_id`) VALUES
+(1, 'Пантелей', NULL),
+(2, 'Иван', 1),
+(3, 'Мирон', 1),
+(4, 'Дмитрий', 3),
+(5, 'Егор', 3);
 
 -- --------------------------------------------------------
 
@@ -91,17 +114,41 @@ INSERT INTO `interest_rel` (`id`, `user_id`, `interest_id`) VALUES
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(120) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `product_id` int(11) DEFAULT NULL
+  `product_id` int(11) DEFAULT NULL,
+  `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `product_id`) VALUES
-(1, 'Огурцы', NULL),
-(2, 'Хозяйственное мыло', NULL),
-(3, 'Редис', NULL);
+INSERT INTO `product` (`id`, `name`, `product_id`, `price`) VALUES
+(1, 'Огурцы', NULL, 70),
+(2, 'Хозяйственное мыло', NULL, 20),
+(3, 'Редис', NULL, 80);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Дамп данных таблицы `purchase`
+--
+
+INSERT INTO `purchase` (`id`, `user_id`, `product_id`, `date`) VALUES
+(1, 2, 3, '2019-05-30'),
+(2, 2, 1, '2019-05-30'),
+(3, 3, 2, '2019-04-24'),
+(4, 1, 2, '2019-05-31');
 
 -- --------------------------------------------------------
 
@@ -142,7 +189,34 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`) VALUES
-(1, 'Maxim');
+(1, 'Maxim'),
+(2, 'Alex'),
+(3, 'Nina');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `water`
+--
+
+CREATE TABLE `water` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `flows into` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `water`
+--
+
+INSERT INTO `water` (`id`, `name`, `flows into`) VALUES
+(1, 'Caspian Sea', NULL),
+(2, 'Volga river', 1),
+(3, 'Black Sea', NULL),
+(4, 'Dnieper river', 3),
+(5, 'Don River', 3),
+(6, 'Ros River', 4),
+(7, 'Pripyat River', 4);
 
 --
 -- Индексы сохранённых таблиц
@@ -152,6 +226,12 @@ INSERT INTO `user` (`id`, `name`) VALUES
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `fathers`
+--
+ALTER TABLE `fathers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -173,6 +253,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `rel`
 --
 ALTER TABLE `rel`
@@ -185,6 +271,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `water`
+--
+ALTER TABLE `water`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -193,6 +285,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `fathers`
+--
+ALTER TABLE `fathers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `interests`
@@ -213,6 +311,12 @@ ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT для таблицы `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT для таблицы `rel`
 --
 ALTER TABLE `rel`
@@ -222,7 +326,13 @@ ALTER TABLE `rel`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `water`
+--
+ALTER TABLE `water`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

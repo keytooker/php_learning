@@ -282,6 +282,7 @@ WHERE MONTH(purchase.date) = ' . $m . '
 <?php
 }
 */
+}
 
 /**
  * Урок 47 - 12
@@ -321,6 +322,28 @@ WHERE grandsons.name IS NOT NULL AND users.name IS NOT NULL';
  (3) получить все притоки реки Днепр, 
  (4) получить куда впадает данная река (в какую реку или в какое море). 
  */
+
+ // (1)
+$query = 'SELECT main_water.name AS main_name, inflow.name AS inflow  FROM water AS inflow 
+LEFT JOIN water AS main_water ON inflow.flows_into = main_water.id
+WHERE main_water.name = \'Black Sea\'';
+
+// (2)
+$query = 'SELECT sea.name AS main_name, inflow.name AS inflow, inflow2.name AS inflow_of_inflow  FROM water AS inflow 
+LEFT JOIN water AS sea ON inflow.flows_into = sea.id
+LEFT JOIN water AS inflow2 ON inflow2.flows_into = inflow.id
+WHERE sea.name = \'Black Sea\'';
+
+// (3)
+$query = 'SELECT main_river.name AS main_river, inflow.name AS inflow FROM water AS inflow
+ LEFT JOIN water AS main_river ON inflow.flows_into = main_river.id
+ WHERE main_river.name = \'Dnieper river\'';
+
+// (4)
+ $query = 'SELECT main_river.name AS main_river, inflow.name AS inflow FROM water AS inflow
+ LEFT JOIN water AS main_river ON inflow.flows_into = main_river.id
+ WHERE inflow.name = \'Volga river\'';
+
 
 
 $data = make_query($link, $query);
