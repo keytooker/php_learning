@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 02 2019 г., 21:20
+-- Время создания: Июн 07 2019 г., 15:17
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -46,6 +46,28 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `user_id`, `post_id`) VALUES
+(1, 'Согласен', 1, 1),
+(2, 'Мне не понравилось', 1, 2),
+(3, 'Спартак чемпион', 3, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `fathers`
 --
 
@@ -65,6 +87,25 @@ INSERT INTO `fathers` (`id`, `name`, `father_id`) VALUES
 (3, 'Мирон', 1),
 (4, 'Дмитрий', 3),
 (5, 'Егор', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `forum_category`
+--
+
+CREATE TABLE `forum_category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `forum_category`
+--
+
+INSERT INTO `forum_category` (`id`, `name`) VALUES
+(1, 'Обо всем'),
+(2, 'Выбор техники');
 
 -- --------------------------------------------------------
 
@@ -128,6 +169,49 @@ INSERT INTO `match` (`id`, `team1_id`, `team2_id`, `date`, `score`) VALUES
 (2, 2, 1, '2019-06-02', '1:1'),
 (3, 3, 4, '2019-05-16', '2:2'),
 (4, 4, 3, '2019-06-14', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` int(11) NOT NULL,
+  `url` varchar(128) NOT NULL,
+  `title` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `pages`
+--
+
+INSERT INTO `pages` (`id`, `url`, `title`) VALUES
+(1, '/soccer/game_last_week.php', 'Провал'),
+(2, '/lady/kirkorov.php', 'Новая песня');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `content` varchar(512) NOT NULL,
+  `topic_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `content`, `topic_id`) VALUES
+(1, 'Волга обмелела', 'Что делать?', 3),
+(2, 'Где купить со скидкой', 'Поищите на Авито', 1),
+(3, 'Конкуренты', 'Купите лучше Canon', 2),
+(4, 'Турбазы Подмосковья', 'Дорого', 1);
 
 -- --------------------------------------------------------
 
@@ -221,6 +305,27 @@ INSERT INTO `teams` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `topic`
+--
+
+CREATE TABLE `topic` (
+  `id` int(11) NOT NULL,
+  `title` varchar(512) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `topic`
+--
+
+INSERT INTO `topic` (`id`, `title`, `category_id`) VALUES
+(1, 'Ноутбуки Samsung', 2),
+(2, 'Фотоаппараты Nikon', 2),
+(3, 'Рыбалка', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `user`
 --
 
@@ -274,9 +379,21 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `fathers`
 --
 ALTER TABLE `fathers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `forum_category`
+--
+ALTER TABLE `forum_category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -295,6 +412,18 @@ ALTER TABLE `interest_rel`
 -- Индексы таблицы `match`
 --
 ALTER TABLE `match`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `posts`
+--
+ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -322,6 +451,12 @@ ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `topic`
+--
+ALTER TABLE `topic`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -344,10 +479,22 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `fathers`
 --
 ALTER TABLE `fathers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `forum_category`
+--
+ALTER TABLE `forum_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `interests`
@@ -365,6 +512,18 @@ ALTER TABLE `interest_rel`
 -- AUTO_INCREMENT для таблицы `match`
 --
 ALTER TABLE `match`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `posts`
+--
+ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -390,6 +549,12 @@ ALTER TABLE `rel`
 --
 ALTER TABLE `teams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `topic`
+--
+ALTER TABLE `topic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `user`

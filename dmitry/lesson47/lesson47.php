@@ -384,6 +384,40 @@ $query = 'SELECT main_river.name AS main_river, inflow.name AS inflow FROM water
  LEFT JOIN  teams AS team2 ON `match`.`team2_id` = `team2`.`id`
  WHERE `match`.`date` < NOW()';
 
+/**
+* Урок 47 - 16
+Модифицируем предыдущую задачу так, чтобы выводился также город, в котором будет игра. Каждая команда принадлежит своему городу (игра может быть в городе одной из команд). Добавьте еще и игроков, каждый игрок может принадлежать одной команде.
+*/
+$query = 'SELECT home_team.name AS home_team_name, road_team.name AS road_team_name, `match`.score AS score, city.name AS game_place, home_team_players.name AS home_players, road_team_players.name AS road_players FROM `match`
+LEFT JOIN teams AS home_team ON `match`.`team1_id` = `home_team`.`id`
+LEFT JOIN teams AS road_team ON `match`.`team2_id` = `road_team`.`id`
+LEFT JOIN cities AS city ON `match`.`city_id` = `city`.`id`
+LEFT JOIN players AS home_team_players ON home_team_players.team_id = home_team.id
+LEFT JOIN players AS road_team_players ON road_team_players.team_id = road_team.id
+';
+
+/**
+* Урок 47 - 17
+Пользователь, страницы, категории страниц. Пользователи пишут посты в гостевой книге к определенной странице. Запросы: 
+(1) получить все комментарии к данной странице, 
+(2) получить все комментарии данного пользователя
+*/
+
+$query = 'SELECT comments.content AS comment, pages.title AS page_title FROM comments
+LEFT JOIN pages ON comments.post_id = pages.id
+WHERE pages.url = \'/soccer/game_last_week.php\'';
+
+$query = 'SELECT user.name AS user_name, comments.content AS comment from user
+ LEFT JOIN comments ON comments.user_id = user.id';
+
+/**
+* Урок 47 - 18
+  Форум, категории, в них темы (тема принадлежит только одной категории), в темах посты. У темы есть автор. Пользователи могут обмениваться личными сообщениями. 
+*/
+$query = 'SELECT * FROM posts 
+LEFT JOIN topic ON posts.topic_id = topic.id
+LEFT JOIN forum_category ON topic.category_id = forum_category.id';
+
 
 $data = make_query($link, $query);
 ?>
