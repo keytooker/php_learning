@@ -26,19 +26,8 @@ function make_query($link, $query)
 /**
 * Урок 47 - 18
   Генеологическое дерево. Пользователь, его бабушки, дедушки, мама, папа, братья, сестры, дети. Можно найти любого родственника в любом колене (например, пра-пра-пра-дедушку). То есть есть пользователь, он может быть сыном, отцом, братом, дедушкой, прадедушкой и все это одновременно. Нужно хранить и получать родственные связи.  
-  (1) получить отца пользователя, 
-  (2) получить мать пользователя, 
   
-   
-  (5) получить дочерей пользователя, 
-  (6) получить внуков пользователя, 
-  (7) получить бабушек пользователя, 
-  (8) получить дедушек пользователя, 
-  (9) получить пра-пра-пра-дедушку пользователя, 
-  (10) получить братьев и сестер пользователя, 
-  (11) получить братьев пользователя, 
-  (12) получить дядь и теть пользователя, 
-  (13) получить кузенов и кузин пользователя.
+
 */
 
   $db_name = 'lesson_47_2'; //имя базы данных
@@ -49,12 +38,12 @@ $link = mysqli_connect($host, $user, $password, $db_name);
 //Устанавливаем кодировку (не обязательно, но поможет избежать проблем):
 mysqli_query($link, "SET NAMES 'utf8'");
 
-// (1)
+// (1)  получить отца пользователя, 
  $query = 'SELECT children.name AS user, parents.name AS dad FROM family_tree AS children
  LEFT JOIN family_tree AS parents ON children.father = parents.id
  WHERE children.name = \'Онопко Наталья\'';
 
-// (2) 
+// (2) получить мать пользователя,
  $query = 'SELECT children.name AS user, parents.name AS mother FROM family_tree AS children
  LEFT JOIN family_tree AS parents ON children.mother = parents.id
  WHERE children.name = \'Онопко Екатерина\'';
@@ -68,6 +57,61 @@ mysqli_query($link, "SET NAMES 'utf8'");
 $query = 'SELECT children.name AS son, users.name AS parent FROM family_tree AS users
  LEFT JOIN family_tree AS children ON children.mother = users.id OR children.father = users.id
  WHERE users.name =  \'Архипов Мирон\' AND children.sex = \'male\'';
+
+// (5) получить дочерей пользователя,
+ $query = 'SELECT children.name AS dot, users.name AS parent FROM family_tree AS users
+ LEFT JOIN family_tree AS children ON children.mother = users.id OR children.father = users.id
+ WHERE users.name =  \'Архипов Мирон\' AND children.sex = \'female\'';
+
+// (6) получить внуков пользователя,
+ $query = 'SELECT grandson.name AS grandson, users.name AS parent FROM family_tree AS users
+ LEFT JOIN family_tree AS children ON children.mother = users.id OR children.father = users.id
+ LEFT JOIN family_tree AS grandson ON grandson.mother = children.id OR grandson.father = children.id
+ WHERE users.name =  \'Архипов Пантелеймон\'';
+
+//  (7) получить бабушек пользователя, 
+ $query = 'SELECT grandmo.name AS grandmo, users.name AS grandson FROM family_tree AS users
+ LEFT JOIN family_tree AS parent ON users.mother = parent.id OR users.father = parent.id
+ LEFT JOIN family_tree AS grandmo ON parent.mother = grandmo.id OR parent.father = grandmo.id
+ WHERE users.name =  \'Онопко Екатерина\' AND grandmo.sex = \'female\'';
+
+//   (8) получить дедушек пользователя, 
+  $query = 'SELECT grandfa.name AS grandfa, users.name AS grandson FROM family_tree AS users
+ LEFT JOIN family_tree AS parent ON users.mother = parent.id OR users.father = parent.id
+ LEFT JOIN family_tree AS grandfa ON parent.mother = grandfa.id OR parent.father = grandfa.id
+ WHERE users.name =  \'Онопко Екатерина\' AND grandfa.sex = \'male\'';
+
+//  (9) получить пра-пра-пра-дедушку пользователя, 
+   $query = 'SELECT grand4.name AS grand4, users.name AS grandson FROM family_tree AS users
+ LEFT JOIN family_tree AS parent ON users.mother = parent.id OR users.father = parent.id
+ LEFT JOIN family_tree AS grand1 ON parent.mother = grand1.id OR parent.father = grand1.id
+  LEFT JOIN family_tree AS grand2 ON grand1.mother = grand2.id OR grand1.father = grand2.id
+    LEFT JOIN family_tree AS grand3 ON grand2.mother = grand3.id OR grand2.father = grand3.id
+      LEFT JOIN family_tree AS grand4 ON grand3.mother = grand4.id OR grand3.father = grand4.id
+ WHERE users.name =  \'Онопко Екатерина\' AND grand4.sex = \'male\'';
+
+//  (10) получить братьев и сестер пользователя, 
+$query = 'SELECT users.name AS user, siblings.name AS sibling FROM family_tree AS users
+LEFT JOIN family_tree AS siblings ON siblings.father = users.father OR siblings.mother = users.mother
+WHERE siblings.id != users.id';
+
+//  (11) получить братьев пользователя, 
+$query = 'SELECT users.name AS user, siblings.name AS sibling FROM family_tree AS users
+LEFT JOIN family_tree AS siblings ON siblings.father = users.father OR siblings.mother = users.mother
+WHERE siblings.id != users.id AND siblings.sex = \'male\'';
+
+//  (12) получить дядь и теть пользователя, 
+$query = 'SELECT users.name AS user, au.name AS au FROM family_tree AS users
+LEFT JOIN family_tree AS parants ON users.father = parants.id OR users.mother = parants.id
+LEFT JOIN family_tree AS au ON au.father = parants.father OR au.mother = parants.mother
+WHERE au.id != parants.id';
+
+//  (13) получить кузенов и кузин пользователя.
+$query = 'SELECT users.name AS user, cous.name AS cousin FROM family_tree AS users
+LEFT JOIN family_tree AS parants ON users.father = parants.id OR users.mother = parants.id
+LEFT JOIN family_tree AS au ON au.father = parants.father OR au.mother = parants.mother
+LEFT JOIN family_tree AS cous ON cous.father = au.id OR cous.mother = au.id
+WHERE au.id != parants.id AND users.name =  \'Онопко Екатерина\'';
 
 $data = make_query($link, $query);
 ?>
