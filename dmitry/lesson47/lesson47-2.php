@@ -24,7 +24,7 @@ function make_query($link, $query)
 }
 
 /**
-* Урок 47 - 18
+* Урок 47 - 23
   Генеологическое дерево. Пользователь, его бабушки, дедушки, мама, папа, братья, сестры, дети. Можно найти любого родственника в любом колене (например, пра-пра-пра-дедушку). То есть есть пользователь, он может быть сыном, отцом, братом, дедушкой, прадедушкой и все это одновременно. Нужно хранить и получать родственные связи.  
   
 
@@ -112,6 +112,45 @@ LEFT JOIN family_tree AS parants ON users.father = parants.id OR users.mother = 
 LEFT JOIN family_tree AS au ON au.father = parants.father OR au.mother = parants.mother
 LEFT JOIN family_tree AS cous ON cous.father = au.id OR cous.mother = au.id
 WHERE au.id != parants.id AND users.name =  \'Онопко Екатерина\'';
+
+
+
+/**
+
+47 - 27 Как реализовать?
+  Удаление пользователей, которые не заходили на сайт более 3-х месяцев. 
+INSERT INTO `users` (`id`, `login`, `access_to`, `last_visit`) VALUES (NULL, 'nikolay', '2019-06-29', '2019-02-13');
+DELETE FROM users WHERE last_visit < (NOW() - INTERVAL 3 MONTH);
+*/
+
+
+/**
+
+47 - 28 Как реализовать?
+  Активация аккаунта пользователя через email сразу после регистрации. 
+  UPDATE users SET status = TRUE WHERE email = 'ivanov@mail.com';
+*/
+
+/**
+
+47 - 30 Как реализовать?
+  Есть тест с 500 вопросами. Покажите пользователю 20 случайных вопросов.
+
+ $i = 1;
+do {
+  $query = 'INSERT INTO `test` (`q`) VALUES (\'Question ' . $i . '\')';
+  make_query($link, $query);
+  $i++;
+} while ($i <= 500);
+
+
+$query = 'SELECT `q` FROM `test` ORDER BY RAND() LIMIT 20';
+*/
+
+
+
+
+
 
 $data = make_query($link, $query);
 ?>
