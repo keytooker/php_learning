@@ -1,9 +1,13 @@
-
 <?php
-
+session_start();
 include __DIR__ . '/elems/init.php';
 
 $table_name = 'pages';
+
+if ( $_SESSION['auth'] )
+{
+    $message = $_SESSION['message']['text'];
+}
 
 if ( isset($_GET['page']) )
 {
@@ -22,7 +26,9 @@ if ( isset($_GET['page']) )
         header("HTTP/1.0 404 Not Found");
     }
 
-    $content = $page['text'];
+
+
+    $content = $content . ' ' . $page['text'];
     $title = $page['title'];
 }
 else
@@ -30,7 +36,7 @@ else
     $query = 'SELECT id, url, title FROM ' . $table_name . ' WHERE url != \'404\' ORDER BY id DESC';
     $result = mysqli_query($link, $query) or die( mysqli_error($link) );
     for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
-    $content = '<h3>Задача 25. Статьи сайта, отсортированные по убыванию даты добавления (то есть в начале самые новые)</h3>';
+    $content = $message . '<h3>Задача 25. Статьи сайта, отсортированные по убыванию даты добавления (то есть в начале самые новые)</h3>';
     foreach ($data as $page) {
         if ($page['url'] != '/') {
             $href_part  = '/?page=';
