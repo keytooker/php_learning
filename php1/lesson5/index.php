@@ -9,5 +9,8 @@
 </head>
 <body>
     <h3> Добро пожаловать на главную страницу! </h3>
+    <p>
+    	<a href="/php1/lesson5/login.php">login page</a>
+    </p>
 </body>
 </html>

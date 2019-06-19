@@ -3,6 +3,22 @@
 // Функция getUsersList() пусть возвращает массив всех пользователей и хэшей их паролей
 function getUsersList()
 {
+    $file_path = __DIR__ . '/users.txt';
+    $users_info = file($file_path);
+
+    $users_list = [];
+    foreach ($users_info as $ui) {
+        $pair = explode(' ', $ui);
+        $users_list[$pair[0]] = $pair[1];
+    }
+    
+    ?>
+    <pre>
+        <?php 
+            var_dump($users_list);
+        ?>
+    </pre>
+    <?php
     return [
         'user' => password_hash('pass', PASSWORD_DEFAULT),
         'user2' =>  password_hash('pass2', PASSWORD_DEFAULT),
