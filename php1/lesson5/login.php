@@ -1,21 +1,14 @@
 <?php
 
 include __DIR__ . '/functions.php';
+session_start();
 
-if ( isset($_POST['login']) && isset($_POST['password']) && сheckPassword($_POST['login'], $_POST['password']) )
+//ЕСЛИ введены данные в форму входа - проверяем им (см. пункт 1.3) и ЕСЛИ проверка прошла, ТО запоминаем информацию о вошедшем пользователе
+if ( isset($_POST['login']) and isset($_POST['password']) and сheckPassword($_POST['login'], $_POST['password']) )
 {
-    setcookie('current_user', $_POST['login']);
+    $_SESSION['user'] = $_POST['login'];
 }
-
-if ( getCurrentUser() != null )
-{
-    $host  = $_SERVER['HTTP_HOST'];
-    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    $extra = 'index.php';
-    header('Location: http://' . $host . $uri .'/' . $extra);
-    exit;
-}
-else
+else // ЕСЛИ пользователь не вошел - отображает форму входа
 {
     ?>
 
@@ -38,5 +31,9 @@ else
     <?php
 }
 
-
+// ЕСЛИ пользователь уже вошел (см. пункт 2), ТО редирект на главную страницу
+if ( !is_null(getCurrentUser()) )
+{
+    header('Location: /php1/lesson5/index.php');
+}
 

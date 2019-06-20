@@ -9,32 +9,22 @@ function getUsersList()
     $users_list = [];
     foreach ($users_info as $ui) {
         $pair = explode(' ', $ui);
-        $users_list[$pair[0]] = $pair[1];
+        $users_list[$pair[0]] = trim($pair[1]);
     }
-    
-    ?>
-    <pre>
-        <?php 
-            var_dump($users_list);
-        ?>
-    </pre>
-    <?php
-    return [
-        'user' => password_hash('pass', PASSWORD_DEFAULT),
-        'user2' =>  password_hash('pass2', PASSWORD_DEFAULT),
-    ];
+    return $users_list;
 }
 
 // Функция existsUser($login) проверяет - существует ли пользователь с заданным логином?
 function existsUser($login)
 {
-    if ( array_key_exists($login, getUsersList()) )
+    $users = getUsersList();
+    if ( array_key_exists($login, $users) )
     {
-        return TRUE;
+        return true;
     }
     else
     {
-        return FALSE;
+        return false;
     }
 }
 
@@ -42,26 +32,30 @@ function existsUser($login)
 // логином и введенный им пароль прошел проверку
 function сheckPassword($login, $password)
 {
-    if ( existsUser($login) )
+    if ( !existsUser($login) )
     {
-        $usersList = getUsersList();
-        if ( password_verify( $password, $usersList[$login]) )
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
+        return false;
+    }
+
+    $usersList = getUsersList();
+    $hash = $usersList[$login];
+
+    if ( password_verify( $password, $hash) )
+    {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
 // getCurrentUser() возвращает либо имя вошедшего на сайт пользователя, либо null
 function getCurrentUser()
 {
-    if (isset($_COOKIE['current_user']))
+    session_start();
+    if ( isset($_SESSION['user']) )
     {
-        return $_COOKIE['current_user'];
+        return $_SESSION['user'];
     }
     else
     {
