@@ -19,7 +19,7 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
 	$login = $_POST['login'];
 	$password = $_POST['password'];
 
-	$query = 'SELECT * FROM users WHERE login=\'' . $login . '\' AND password=' . $password . '';
+	$query = 'SELECT * FROM users WHERE login=\'' . $login . '\' AND password=\'' . $password . '\'';
 	$result = mysqli_query($link, $query) or die(mysqli_error($link));
 		
 	if ( !empty($user) ) {
@@ -28,7 +28,7 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
     	$_SESSION['message'] = [ 'text' => 'Вы вошли на сайт', 'status' => 'success'];
     	$_SESSION['auth'] = true;
     	$_SESSION['login'] = $login;
-		header('Location: /dmitry/lesson48-50/index.php');
+		header('Location: /dmitry/lesson48-51/index.php');
     	//die();
 	} else {
 		echo 'Неверный логин или пароль';
