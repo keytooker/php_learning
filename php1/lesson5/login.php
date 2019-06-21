@@ -1,12 +1,24 @@
 <?php
 
 include __DIR__ . '/functions.php';
+
 session_start();
 
-//ЕСЛИ введены данные в форму входа - проверяем им (см. пункт 1.3) и ЕСЛИ проверка прошла, ТО запоминаем информацию о вошедшем пользователе
-if ( isset($_POST['login']) and isset($_POST['password']) and сheckPassword($_POST['login'], $_POST['password']) )
+// ЕСЛИ введены данные в форму входа - проверяем им (см. пункт 1.3) и ЕСЛИ проверка прошла,
+// ТО запоминаем информацию о вошедшем пользователе
+if ( isset($_POST['login']) and isset($_POST['password']) )
 {
-    $_SESSION['user'] = $_POST['login'];
+    if ( сheckPassword($_POST['login'], $_POST['password']) )
+    {
+        $_SESSION['user'] = $_POST['login'];
+        $_SESSION['auth'] = true;
+    }
+}
+
+if ( isset($_SESSION['auth']) ) // ЕСЛИ пользователь уже вошел (см. пункт 2), ТО редирект на главную страницу
+{
+    if ( true === $_SESSION['auth'] )
+        header('Location: /php1/lesson5/index.php');
 }
 else // ЕСЛИ пользователь не вошел - отображает форму входа
 {
@@ -31,9 +43,5 @@ else // ЕСЛИ пользователь не вошел - отображает
     <?php
 }
 
-// ЕСЛИ пользователь уже вошел (см. пункт 2), ТО редирект на главную страницу
-if ( !is_null(getCurrentUser()) )
-{
-    header('Location: /php1/lesson5/index.php');
-}
+
 

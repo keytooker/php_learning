@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,8 +12,14 @@
 </head>
 <body>
     <h3> Добро пожаловать на главную страницу! </h3>
+
     <p>
     	<a href="/php1/lesson5/login.php">login page</a>
     </p>
+
+    <p>
+        <a href="/php1/lesson5/upload_img.php">upload image</a>
+    </p>
+
 </body>
 </html>

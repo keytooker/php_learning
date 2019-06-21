@@ -3,8 +3,10 @@
 
 include __DIR__ . '/functions.php';
 
+session_start();
+
 // Если пользователь авторизован
-if (getCurrentUser() != null)
+if ( isset($_SESSION['auth']) )
 {
     if ( isset($_FILES['userfile']) && (0 == $_FILES['userfile']['error']) )
     {
@@ -21,10 +23,19 @@ if (getCurrentUser() != null)
         }
     }
 }
+else
+{
+    echo 'Вы не авторизованы';
+}
 ?>
 
-<form enctype="multipart/form-data" action="upload_img.php" method="POST">
-    Отправить этот файл: <input name="userfile" type="file"/>
-    <input type="submit" value="Отправить файл"/>
-</form>
+<p>
+    <form enctype="multipart/form-data" action="upload_img.php" method="POST">
+        Отправить этот файл: <input name="userfile" type="file"/>
+        <input type="submit" value="Отправить файл"/>
+    </form>
+</p>
 
+<p>
+    <a href="/php1/lesson5/index.php">На главную</a> | <a href="/php1/lesson5/login.php">login page</a>
+</p>

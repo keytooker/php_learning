@@ -18,14 +18,7 @@ function getUsersList()
 function existsUser($login)
 {
     $users = getUsersList();
-    if ( array_key_exists($login, $users) )
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return array_key_exists($login, $users);
 }
 
 // Функция сheckPassword($login, $password) пусть возвращает true тогда, когда существует пользователь с указанным
@@ -40,19 +33,12 @@ function сheckPassword($login, $password)
     $usersList = getUsersList();
     $hash = $usersList[$login];
 
-    if ( password_verify( $password, $hash) )
-    {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return password_verify( $password, $hash );
 }
 
 // getCurrentUser() возвращает либо имя вошедшего на сайт пользователя, либо null
 function getCurrentUser()
 {
-    session_start();
     if ( isset($_SESSION['user']) )
     {
         return $_SESSION['user'];
