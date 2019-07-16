@@ -28,7 +28,7 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
     	$_SESSION['message'] = [ 'text' => 'Вы вошли на сайт', 'status' => 'success'];
     	$_SESSION['auth'] = true;
     	$_SESSION['login'] = $login;
-		header('Location: /dmitry/lesson48-51/index.php');
+		header('Location: /dmitry/lesson48-52/index.php');
     	//die();
 	} else {
 		echo 'Неверный логин или пароль';

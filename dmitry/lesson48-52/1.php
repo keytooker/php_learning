@@ -15,7 +15,7 @@ else
 {
 	?>
 	<p>
-		<a href="/dmitry/lesson48-50/login.php">Прошу авторизоваться</a>
+		<a href="/dmitry/lesson48-52/login.php">Прошу авторизоваться</a>
 	</p>
 	<?php
 }
