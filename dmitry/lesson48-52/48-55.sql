@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 16 2019 г., 16:09
+-- Время создания: Июл 16 2019 г., 16:46
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -55,26 +55,17 @@ CREATE TABLE `users` (
   `date` date DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
-  `country` varchar(128) DEFAULT NULL
+  `country` varchar(128) DEFAULT NULL,
+  `salt` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`) VALUES
-(1, 'user', '12345', NULL, '', NULL, NULL),
-(2, 'admin', '123', NULL, '', NULL, NULL),
-(3, 'Mikhail', '123', NULL, '', NULL, NULL),
-(4, 'someone', '1234', NULL, '', NULL, NULL),
-(5, 'adfa', 'adfad', '2014-08-31', '', NULL, NULL),
-(6, 'adfadfsa', 'adfadf', '2011-05-31', 'adfad@dfa.com', NULL, NULL),
-(7, 'dima', 'dima', '2010-11-30', 'dima@ya.com', '2019-06-21', NULL),
-(8, 'anna', 'anna', '2018-12-31', 'anna@anna.cm', '2019-06-21', NULL),
-(9, 'dima', '123', '2018-11-27', 'dfa@sd.rcoi', '2019-06-21', NULL),
-(11, 'www', 'ййй', '2019-07-01', 'gjgvj@jhbk.sh', '2019-07-16', NULL),
-(12, 'eee', 'еее', '2019-07-01', 'xfgxgfg@nhvnh.ru', '2019-07-16', NULL),
-(13, 'ddd', 'dddd', '2019-07-03', 'kgv@jgc.yt', '2019-07-16', 'USA');
+INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`, `salt`) VALUES
+(14, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '2019-07-01', 'admin@admin.ar', '2019-07-16', 'Russia', NULL),
+(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '2019-07-01', 'adf@dfasdf.ru', '2019-07-16', 'USA', '|B4B;It-');
 
 --
 -- Индексы сохранённых таблиц
@@ -106,7 +97,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

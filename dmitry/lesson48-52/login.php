@@ -17,19 +17,29 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
 	mysqli_query($link, "SET NAMES 'utf8'");
 
 	$login = $_POST['login'];
-	$password = $_POST['password'];
 
-	$query = 'SELECT * FROM users WHERE login=\'' . $login . '\' AND password=\'' . $password . '\'';
+	//$query = 'SELECT * FROM users WHERE login=\'' . $login . '\' AND password=\'' . $password . '\'';
+    $query = 'SELECT * FROM users WHERE login=\'' . $login . '\'';
 	$result = mysqli_query($link, $query) or die(mysqli_error($link));
-		
-	if ( !empty($user) ) {
-		//echo 'Прошел авторизацию'; // если пользователь прошел авторизацию - выводилось сообщение об этом
-		session_start();
-    	$_SESSION['message'] = [ 'text' => 'Вы вошли на сайт', 'status' => 'success'];
-    	$_SESSION['auth'] = true;
-    	$_SESSION['login'] = $login;
-		header('Location: /dmitry/lesson48-52/index.php');
-    	//die();
+	$user = mysqli_fetch_assoc($result);
+
+	if ( !empty($user) )
+	{
+	    $salt = $user['salt'];
+	    $hash = $user['password'];
+	    $password = md5($salt . $_POST['password']);
+
+	    if ($password == $hash) {
+            //echo 'Прошел авторизацию'; // если пользователь прошел авторизацию - выводилось сообщение об этом
+            session_start();
+            $_SESSION['message'] = ['text' => 'Вы вошли на сайт', 'status' => 'success'];
+            $_SESSION['auth'] = true;
+            $_SESSION['login'] = $login;
+            header('Location: /dmitry/lesson48-52/index.php');
+        }
+	    else {
+            echo 'Неверный логин или пароль';
+        }
 	} else {
 		echo 'Неверный логин или пароль';
 	}
