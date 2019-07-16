@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 16 2019 г., 16:46
+-- Время создания: Июл 16 2019 г., 17:05
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -55,17 +55,17 @@ CREATE TABLE `users` (
   `date` date DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
   `registration_date` date DEFAULT NULL,
-  `country` varchar(128) DEFAULT NULL,
-  `salt` varchar(128) DEFAULT NULL
+  `country` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`, `salt`) VALUES
-(14, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '2019-07-01', 'admin@admin.ar', '2019-07-16', 'Russia', NULL),
-(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '2019-07-01', 'adf@dfasdf.ru', '2019-07-16', 'USA', '|B4B;It-');
+INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`) VALUES
+(14, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '2019-07-01', 'admin@admin.ar', '2019-07-16', 'Russia'),
+(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '2019-07-01', 'adf@dfasdf.ru', '2019-07-16', 'USA'),
+(16, 'user', '$2y$10$LJ4/KZBu9gcwzK.qqB3IqOFA0GeotF5hgY2ORwFjlr.JMMAbjL9f2', '2019-07-01', 'khgfc@jhgf.oiu', '2019-07-16', 'Russia');
 
 --
 -- Индексы сохранённых таблиц
@@ -97,7 +97,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

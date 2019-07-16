@@ -1,8 +1,7 @@
 <?php
 
 /**
-Урок 50 
-
+login.php
 */
 
 if ( !empty($_POST['login']) AND !empty($_POST['password']) )
@@ -25,11 +24,9 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
 
 	if ( !empty($user) )
 	{
-	    $salt = $user['salt'];
 	    $hash = $user['password'];
-	    $password = md5($salt . $_POST['password']);
 
-	    if ($password == $hash) {
+	    if (password_verify($_POST['password'], $hash)) {
             //echo 'Прошел авторизацию'; // если пользователь прошел авторизацию - выводилось сообщение об этом
             session_start();
             $_SESSION['message'] = ['text' => 'Вы вошли на сайт', 'status' => 'success'];

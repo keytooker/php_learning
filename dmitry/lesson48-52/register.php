@@ -4,18 +4,6 @@
  *
  */
 
-function generate_salt()
-{
-    $salt = '';
-    $len = 8;
-    for ($i = 0; $i < $len; ++$i)
-    {
-        $salt .= chr(mt_rand(33, 126));
-    }
-
-    return $salt;
-}
-
 if (empty($_POST['password']))
 {
     echo 'Пустой пароль!';
@@ -41,8 +29,7 @@ else if ( !empty($_POST['login']) and (!empty($_POST['password'])) and !empty($_
         mysqli_query($link, "SET NAMES 'utf8'");
 
         $login = $_POST['login'];
-        $salt = generate_salt();
-        $password = md5($salt . $_POST['password']);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         // Пробуем получить юзера с таким логином:
         $query = 'SELECT * FROM users WHERE login=\'' . $login . '\'';
@@ -56,7 +43,7 @@ else if ( !empty($_POST['login']) and (!empty($_POST['password'])) and !empty($_
             $registration_date = date('Y-m-d'); // получим текущую дату средствами PHP
 
             $query = 'INSERT INTO users SET login=\'' . $login . '\', password=\'' . $password . '\', date=\'' . $date .
-                '\', salt=\'' . $salt . '\', email=\'' . $email . '\', country=\'' . $_POST['country'] . '\', registration_date=\'' . $registration_date . '\'';
+                '\', email=\'' . $email . '\', country=\'' . $_POST['country'] . '\', registration_date=\'' . $registration_date . '\'';
             mysqli_query($link, $query);
 
             session_start();
