@@ -40,7 +40,8 @@ if ( isset($_SESSION['auth']) and ($_SESSION['auth'] == true) and (!empty($_POST
 
             mysqli_query($link, $query);
 
-            echo 'Пользоатель удален';
+            echo 'Пользователь удален';
+            unset( $_SESSION['auth'] );
         }
         else
         {

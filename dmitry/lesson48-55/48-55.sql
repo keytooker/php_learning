@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 26 2019 г., 17:23
+-- Время создания: Июл 26 2019 г., 23:53
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -58,17 +58,18 @@ CREATE TABLE `users` (
   `country` varchar(128) DEFAULT NULL,
   `surname` varchar(128) DEFAULT NULL,
   `name` varchar(128) DEFAULT NULL,
-  `patronymic` varchar(128) DEFAULT NULL
+  `patronymic` varchar(128) DEFAULT NULL,
+  `status` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`, `surname`, `name`, `patronymic`) VALUES
-(14, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '2019-07-01', 'admin@admin.ar', '2019-07-16', 'Russia', NULL, NULL, NULL),
-(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '1986-03-10', 'adf@dfasdf.ru', '1986-03-10', 'USA', 'Visloguzov', 'Mikhail', 'Aleksandrovith'),
-(16, 'user', '$2y$10$LJ4/KZBu9gcwzK.qqB3IqOFA0GeotF5hgY2ORwFjlr.JMMAbjL9f2', '2019-07-01', 'khgfc@jhgf.oiu', '2019-07-16', 'Russia', NULL, NULL, 'Petrovith');
+INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`, `surname`, `name`, `patronymic`, `status`) VALUES
+(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '1986-03-10', 'adf@dfasdf.ru', '1986-03-10', 'USA', 'Visloguzov', 'Mikhail', 'Aleksandrovith', 'user'),
+(16, 'user', '$2y$10$edqC7JEjKTAbEJzqwaUA0eyC3bybTGwtmo97Rw34Z3fzZ9C9RjOTa', '2010-07-26', 'khgfc@jhgf.oiu', '2019-07-16', 'Russia', 'ce', '77777', 'be', 'user'),
+(23, 'admin', '$2y$10$A1679n11Y.sWS0L/sSxlBOfZPQOv4Rvm0mbcO1FbpMuFzVrDRhpc2', '2019-07-17', 'admin@admin.com', '2019-07-26', 'Russia', NULL, NULL, NULL, 'admin');
 
 --
 -- Индексы сохранённых таблиц
@@ -100,7 +101,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

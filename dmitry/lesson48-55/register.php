@@ -43,8 +43,9 @@ else if ( !empty($_POST['login']) and (!empty($_POST['password'])) and !empty($_
         $registration_date = date('Y-m-d'); // получим текущую дату средствами PHP
 
         $query = 'INSERT INTO users SET login=\'' . $login . '\', password=\'' . $password . '\', date=\'' . $date .
-            '\', email=\'' . $email . '\', country=\'' . $_POST['country'] . '\', registration_date=\'' . $registration_date . '\'';
-        var_dump($query);
+            '\', email=\'' . $email . '\', country=\'' . $_POST['country'] . '\', registration_date=\''
+            . $registration_date . '\', status=\'user\'';
+
         mysqli_query($link, $query);
 
         session_start();
@@ -66,7 +67,7 @@ else if ( !empty($_POST['login']) and (!empty($_POST['password'])) and !empty($_
 }
 ?>
 
-<form action="/dmitry/lesson48-54/register.php" method="POST" xmlns="http://www.w3.org/1999/html">
+<form action="/dmitry/lesson48-55/register.php" method="POST">
     <p>login: <label><input name="login"/></label></p>
     <input type="password" name="password"/>
     <input name="confirm" type="password">

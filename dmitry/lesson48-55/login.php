@@ -33,7 +33,9 @@ if ( !empty($_POST['login']) AND !empty($_POST['password']) )
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $login;
             $_SESSION['id'] = $user['id'];
-            header('Location: /dmitry/lesson48-54/index.php');
+            $_SESSION['status'] = $user['status'];
+
+            header('Location: /dmitry/lesson48-55/index.php');
         }
 	    else {
             echo 'Неверный логин или пароль';
