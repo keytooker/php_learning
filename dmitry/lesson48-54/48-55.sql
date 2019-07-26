@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 25 2019 г., 16:50
+-- Время создания: Июл 26 2019 г., 17:23
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -67,8 +67,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `login`, `password`, `date`, `email`, `registration_date`, `country`, `surname`, `name`, `patronymic`) VALUES
 (14, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '2019-07-01', 'admin@admin.ar', '2019-07-16', 'Russia', NULL, NULL, NULL),
-(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '2019-07-01', 'adf@dfasdf.ru', '2019-07-16', 'USA', 'Visloguzov', 'Mikhail', 'Aleksandrovith'),
-(16, 'user', '$2y$10$LJ4/KZBu9gcwzK.qqB3IqOFA0GeotF5hgY2ORwFjlr.JMMAbjL9f2', '2019-07-01', 'khgfc@jhgf.oiu', '2019-07-16', 'Russia', NULL, NULL, NULL);
+(15, 'mivi', 'ec432060f6b8a16f1f6be5feb664c225', '1986-03-10', 'adf@dfasdf.ru', '1986-03-10', 'USA', 'Visloguzov', 'Mikhail', 'Aleksandrovith'),
+(16, 'user', '$2y$10$LJ4/KZBu9gcwzK.qqB3IqOFA0GeotF5hgY2ORwFjlr.JMMAbjL9f2', '2019-07-01', 'khgfc@jhgf.oiu', '2019-07-16', 'Russia', NULL, NULL, 'Petrovith');
 
 --
 -- Индексы сохранённых таблиц
