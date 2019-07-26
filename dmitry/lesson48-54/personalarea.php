@@ -1,4 +1,11 @@
 <?php
+/**
+ * personalarea.php
+ *
+ * Урок 54
+ * Задача 4
+ * Реализовать личный кабинет.
+ */
 session_start();
 
 // доступ к странице personalArea.php может иметь только авторизованный пользователь
@@ -14,6 +21,22 @@ if ( isset($_SESSION['auth']) and ($_SESSION['auth'] === true) )
     //Соединяемся с базой данных используя наши доступы:
     $link = mysqli_connect($host, $user, $password, $db_name);
     mysqli_query($link, "SET NAMES 'utf8'");
+
+
+    // Если пользователь что-то ввел в форму и применил изменения
+    if ( !empty($_POST) )
+    {
+
+        $name = $_POST['name'];
+        $patronymic = $_POST['patronymic'];
+        $surname = $_POST['surname'];
+        $rawdate = htmlentities($_POST['date']);
+        $date = date('Y-m-d', strtotime($rawdate));
+
+        $query = 'UPDATE users SET name = \'' . $name . '\', patronymic = \'' . $patronymic . '\', surname = \'' .
+            $surname . '\', date=\'' . $date . '\', country=\'' . $_POST['country'] . '\' WHERE id=' . $id;
+        mysqli_query($link, $query);
+    }
 
     // Пробуем получить юзера с таким логином:
     $query = 'SELECT * FROM users WHERE id=\'' .$id . '\'';
@@ -38,36 +61,20 @@ if ( isset($_SESSION['auth']) and ($_SESSION['auth'] === true) )
             <p>
                 Фамилия: <input name="surname" value="<?= $user['surname'] ?>">
             </p>
-            <p>
-                Возраст: <?php
-                echo ( floor((time() - strtotime($user['date'])) / 31556926) );
-                ?>
-            </p>
 
             <p>
-                Дата рождения: <input type="date" name="date"/> <?php
-                echo ( floor((time() - strtotime($user['date'])) / 31556926) );
-                ?>
+                Дата рождения: <input type="date" name="date"  value="<?php echo $user['date']; ?>"/>
             </p>
             <p>
                 country:
-                <select name="country">
-                    <option value="seo"<?php if($result['interest'] == 'seo'): ?> selected="selected"<?php endif; ?>>SEO и Блоговодство</option>
-                    <option value="Russia">Russia</option>
-                    <option value="Ukraine">Ukraine</option>
-                    <option value="Belarus">Belarus</option>
-                    <option value="USA">USA</option>
-                    <option value="Gonduras">Gonduras</option>
-                </select>
-            </p>
-            <p>
                 <?php
                 $countries = array(
-                'seo' => 'Russia',
-                'auto' => 'Belarus',
+                'Russia' => 'Russia',
+                'Belarus' => 'Belarus',
+                    'USA' => 'USA',
                 );
 ?>
-                <select name="interest">
+                <select name="country">
                     <?php foreach( $countries as $var => $country ): ?>
                         <option value="<?php echo $var ?>"<?php if( $var == $user['country'] ): ?> selected="selected"<?php endif; ?>>
                             <?php echo $country ?>
