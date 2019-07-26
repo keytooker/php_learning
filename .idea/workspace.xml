@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9df9d91-deae-43f8-a6b2-35045905f0a1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dmitry/lesson48-54/personalarea.php" beforeDir="false" afterPath="$PROJECT_DIR$/dmitry/lesson48-54/personalarea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dmitry/lesson48-54/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/dmitry/lesson48-54/register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dmitry/lesson48-54/del.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +24,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changepassword.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="changepassword.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="40" column="94" selection-start-line="40" selection-start-column="94" selection-end-line="40" selection-end-column="94" />
+            <state relative-caret-position="-416">
+              <caret selection-end-line="63" selection-end-column="7" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="del.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dmitry/lesson48-54/del.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+              <folding>
+                <element signature="e#6#78#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,6 +74,7 @@
         <option value="$PROJECT_DIR$/dmitry/lesson48-54/personalarea.php" />
         <option value="$PROJECT_DIR$/dmitry/lesson48-54/register.php" />
         <option value="$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php" />
+        <option value="$PROJECT_DIR$/dmitry/lesson48-54/del.php" />
       </list>
     </option>
   </component>
@@ -135,12 +151,12 @@
       <updated>1542113542357</updated>
       <workItem from="1542113543500" duration="91000" />
       <workItem from="1559158377631" duration="2106000" />
-      <workItem from="1564156400586" duration="6376000" />
+      <workItem from="1564156400586" duration="7781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8573000" />
+    <option name="totallyTimeSpent" value="9978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -207,8 +223,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dmitry/lesson48-54/changepassword.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="40" column="94" selection-start-line="40" selection-start-column="94" selection-end-line="40" selection-end-column="94" />
+        <state relative-caret-position="-416">
+          <caret selection-end-line="63" selection-end-column="7" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dmitry/lesson48-54/del.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+          <folding>
+            <element signature="e#6#78#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
