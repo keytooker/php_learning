@@ -1,22 +1,35 @@
 <?php
 /**
  * del.php
- *
- * Урок 54
- * Задача 7
- * Реализуйте удаление аккаунта.
  */
 
 session_start();
 ?>
 <p>
-Вы вошли как <?= $_SESSION['login']; ?>
+Страница удаления пользователя. Вы вошли как <?= $_SESSION['login']; ?>
 </p>
 <?php
-//  в начале обязательно следует сделать проверку на то, авторизован ли пользователь вообще.
-if ( isset($_SESSION['auth']) and ($_SESSION['auth'] == true) and (!empty($_POST)) ) {
-    $id = $_SESSION['id']; // id юзера из сессии
 
+//  в начале обязательно следует сделать проверку на то, авторизован ли пользователь вообще.
+if ( !isset($_SESSION['auth']) and ($_SESSION['auth'] != true) )
+{
+    die('авторизуйтесь');
+}
+
+$del_user_id = '';
+$current_user_id =  $_SESSION['id'];
+
+// если это admin хочет кого-то удалить
+if ( isset($_GET['id']) and ($_SESSION['status'] == 'admin') )
+{
+    $del_user_id = $_GET['id'];
+}
+else // пользователь сам удаляет свой профиль
+{
+    $del_user_id = $_SESSION['id']; // id юзера из сессии
+}
+
+if ( !empty($_POST) ) {
     $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
     $user = 'root'; //имя пользователя, по умолчанию это root
     $password = ''; //пароль, по умолчанию пустой
@@ -26,17 +39,17 @@ if ( isset($_SESSION['auth']) and ($_SESSION['auth'] == true) and (!empty($_POST
     $link = mysqli_connect($host, $user, $password, $db_name);
     mysqli_query($link, "SET NAMES 'utf8'");
 
-    $query = "SELECT * FROM users WHERE id='$id'"; // получаем юзера по $id из сессии
+    $query = "SELECT * FROM users WHERE id='$current_user_id'";
     $result = mysqli_query($link, $query);
-    $user = mysqli_fetch_assoc($result);
+    $current_user_info = mysqli_fetch_assoc($result);
 
-    $hash = $user['password']; // соленый пароль из БД
+    $hash = $current_user_info['password']; // соленый пароль из БД
 
 // Проверяем соответствие хеша из базы введенному старому паролю
     if (password_verify($_POST['password'], $hash)) {
 
         if ($_POST['password'] == $_POST['confirm']) {
-            $query = 'DELETE FROM users WHERE id=' . $id;
+            $query = 'DELETE FROM users WHERE id=' . $del_user_id;
 
             mysqli_query($link, $query);
 

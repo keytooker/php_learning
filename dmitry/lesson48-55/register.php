@@ -4,6 +4,7 @@
  *
  */
 
+$len = strlen($_POST['password']);
 if (empty($_POST['password']))
 {
     echo 'Пустой пароль!';
@@ -12,7 +13,7 @@ else if ( !preg_match("/^[\w\d\s]*$/", $_POST['password']) ) // только л�
 {
     echo 'В пароле должны быть только цифры или латинские буквы!';
 }
-else if ( (strlen($_POST['password']) < 4) or (strlen($_POST['password']) > 10) )
+else if ( ($len < 4) or ($len > 10) )
 {
     echo 'Некорректная длина пароля!';
 }
@@ -47,13 +48,6 @@ else if ( !empty($_POST['login']) and (!empty($_POST['password'])) and !empty($_
             . $registration_date . '\', status=\'user\'';
 
         mysqli_query($link, $query);
-
-        session_start();
-        $_SESSION['auth'] = true;
-        $_SESSION['login'] = $login;
-
-        $id = mysqli_insert_id($link);
-        $_SESSION['id'] = $id;
     }
     else
     {

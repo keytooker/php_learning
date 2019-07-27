@@ -26,6 +26,8 @@ function create_link($href, $text)
     echo ' <a href="' . $href_part . $href . '"' . $class . '>' . $text . '</a> ';
 }
 
+if (!isset($table_name))
+    $table_name = 'pages';
 
 $query = 'SELECT * FROM ' . $table_name . ' WHERE url != \'404\'';
 $result = mysqli_query($link, $query) or die( mysqli_error($link) );
