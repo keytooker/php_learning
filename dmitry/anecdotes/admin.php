@@ -35,7 +35,7 @@ if (isset($_SESSION['auth']) ) {
         {
             $query = 'DELETE FROM records WHERE id=' . $id;
             $result = mysqli_query($link, $query) or die(mysqli_error($link));
-            
+
         }
     }
 

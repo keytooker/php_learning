@@ -45,8 +45,40 @@
         }
     }
 
+    if ( isset($_GET['page']) and ($_GET['page'] > 0) )
+    {
+        $page = $_GET['page'];
+    }
+
+    else {
+        $page = 1;
+    }
+
+    $notes_on_page = 5;
+    ?>
+
+    <div>
+        <nav>
+            <ul class="pagination">
+                <li class="disabled">
+                    <?php
+                    if ( 1 == $page)
+                    {
+                        $prev = $page;
+                    }
+                    else
+                    {
+                        $prev = $page - 1;
+                    }
+                    ?>
+                    <a href="?page=<?php echo $prev; ?>" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <?php
+
     // запрос с сортировкой по времени от новых записей к старым
-    //$query = 'SELECT * FROM records WHERE approved = 1 ORDER BY time DESC';
     $query = 'SELECT * FROM records WHERE approved = 1 ORDER BY time DESC';
 
     //Делаем запрос к БД, результат запроса пишем в $result:
@@ -54,29 +86,59 @@
     //Преобразуем то, что отдала нам база в нормальный массив PHP $data:
     for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row) ;
 
-    foreach ($data as $record) {
-        ?>
-        <div class="note">
-            <p>
-                <span class="date">
-                    <?php
-                    $date = date_create($record['time']);
-                    echo date_format($date,"Y/m/d H:i:s");
-                    //echo(date("Y-m-d", $record['time']));
-                    ?></span>
-                <span class="name"><?php
-                    echo $record['author'];
-                    ?></span>
-            </p>
-            <p>
-                <?php
-                echo $record['text'];
+                $count = count($data);
+                $pages = ceil($count / $notes_on_page);
+
+                for ($i = 1; $i <= $pages; $i++)
+                {
+
+                if ($i == $page)
+                {
                 ?>
-            </p>
-        </div>
+                <li class="active"><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php
+                }
+                else {
+                ?>
+                <li>
+                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                </li>
+                <?php
+                }
+                }
+                ?>
+                <li>
+                    <a href="?page=<?php echo $pages; ?>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="note">
         <?php
-    }
-    ?>
+        $from = ($page - 1) * $notes_on_page;
+        $query = 'SELECT * FROM records WHERE id > 0 ORDER BY time DESC LIMIT ' . $from .',' . $notes_on_page;
+        $result = mysqli_query($link, $query) or die(mysqli_error($link));
+
+        for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
+
+        foreach ($data as $elem) {
+        ?>
+        <p>
+            <span class="date"><?php echo $elem['time']; ?></span>
+            <span class="name"><?php echo $elem['text']; ?></span>
+        </p>
+
+        <p>
+            <?php echo $elem['message']; ?>
+        </p>
+        <?php
+        }
+        ?>
+    </div>
 
     <div class="info alert alert-info">
         <?php
@@ -84,6 +146,7 @@
             echo 'Запись успешно сохранена!';
         ?>
     </div>
+
     <div id="form">
         <form action="/dmitry/anecdotes/index.php" method="POST">
             <p><input class="form-control" placeholder="Ваше имя" name="name"></p>
