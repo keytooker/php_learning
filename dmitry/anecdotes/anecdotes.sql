@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 28 2019 г., 15:58
+-- Время создания: Июл 30 2019 г., 16:50
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -33,6 +33,13 @@ CREATE TABLE `admins` (
   `login` varchar(64) NOT NULL,
   `password` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `admins`
+--
+
+INSERT INTO `admins` (`id`, `login`, `password`) VALUES
+(1, 'admin', '$2y$10$MlyBxhidwtlk8LcqT/alyO90csSP9SGM3nY782VtY65Tq1TnSThK.');
 
 -- --------------------------------------------------------
 
@@ -74,10 +81,12 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`id`, `text`, `author`, `approved`, `time`, `category`) VALUES
-(1, 'Колобок повесился', 'Петросян', 1, '2019-07-02', 'Детские'),
-(2, 'анекдот', 'Миха', 1, NULL, ''),
-(3, 'анекдот', 'Путин', 0, '2019-07-27', ''),
-(4, 'армянское радио', 'Мартиросян', 0, '2019-07-28', NULL);
+(2, 'анекдот', 'Миха', 1, NULL, '2'),
+(4, 'армянское радио', 'Мартиросян', 1, '2019-07-28', '3'),
+(5, 'Анекдот №3', 'Бро', 0, '2019-07-30', '1'),
+(6, 'Анекдот №4', 'Бро', 1, '2019-07-30', NULL),
+(8, 'Анекдот про Трампа', 'Обама', 1, '2019-07-30', '3'),
+(9, 'Новый анекдот', 'Петросян', 0, '2019-07-30', '2');
 
 --
 -- Индексы сохранённых таблиц
@@ -109,7 +118,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT для таблицы `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `categories`
@@ -121,7 +130,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
