@@ -19,7 +19,7 @@
 </main>
 
 <footer>
-    footer
+    Урок 56. Доска объявлений
 </footer>
 
 </body>

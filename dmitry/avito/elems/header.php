@@ -26,7 +26,7 @@ function create_link($href, $text)
     echo ' <a href="' . $href_part . $href . '"' . $class . '>' . $text . '</a> ';
 }
 
-
+/*
 $query = 'SELECT * FROM ' . $table_name . ' WHERE url != \'404\'';
 $result = mysqli_query($link, $query) or die( mysqli_error($link) );
 for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
@@ -34,3 +34,4 @@ foreach($data as $record)
 {
     create_link($record['url'], $record['title']);
 }
+*/
