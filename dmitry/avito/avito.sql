@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 30 2019 г., 20:05
+-- Время создания: Авг 02 2019 г., 17:14
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -37,6 +37,13 @@ CREATE TABLE `ads` (
   `category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `ads`
+--
+
+INSERT INTO `ads` (`id`, `title`, `text`, `timeup`, `user`, `category`) VALUES
+(1, 'Lego', 'Продам Lego', '2019-07-09 03:00:00', 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +54,15 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'Личные вещи'),
+(2, 'Авто'),
+(3, 'Для детей');
 
 -- --------------------------------------------------------
 
@@ -59,6 +75,13 @@ CREATE TABLE `users` (
   `login` varchar(64) NOT NULL,
   `password` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `password`) VALUES
+(1, 'test', '$2y$10$GC5XWghAuZVDwz1A29bKgeJbx2pr8AmtqpTYn3XcoGBHaJ//x.y3W');
 
 --
 -- Индексы сохранённых таблиц
@@ -90,19 +113,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

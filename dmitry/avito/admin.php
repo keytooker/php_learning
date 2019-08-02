@@ -1,45 +1,32 @@
 <?php
-
+include __DIR__ . '/elems/init.php';
 session_start();
+var_dump($_POST);
+echo $_SESSION['login'];
 ?>
-<p><a href="/dmitry/anecdotes/">На главную</a></p>
-<?php
-if (isset($_SESSION['auth']) ) {
-    $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
-    $user = 'root'; //имя пользователя, по умолчанию это root
-    $password = ''; //пароль, по умолчанию пустой
-    $db_name = 'anecdotes'; //имя базы данных
 
+<p><a href="/dmitry/avito/">На главную</a></p>
+
+<?php
+if (isset($_SESSION['auth']) )
+{
 //Соединяемся с базой данных используя наши доступы:
     $link = mysqli_connect($host, $user, $password, $db_name);
 
-    // Если была попытка удалить или одобрить анекдот
-    if ( isset($_GET['id']) and (isset($_GET['action'])) )
+    // Если было добавлено объявление
+    if ( isset($_POST['title']) and isset($_POST['ad']) )
     {
-        $id = $_GET['id'];
+        $query = 'SELECT id AS user_id FROM users WHERE login = \'' . $_SESSION['login'] . '\'';
+        $result = mysqli_query($link, $query) or die(mysqli_error($link));
+        $user_id = mysqli_fetch_assoc($result);
 
-        if ($_GET['action'] == 0)
-        {
-            $allow = false;
-        }
-        else if ($_GET['action'] == 1)
-        {
-            $allow = true;
-        }
-        if ($allow)
-        {
-            $query = 'UPDATE records SET approved=1 WHERE id=' . $id;
-            mysqli_query($link, $query) or die(mysqli_error($link));
-        }
-        else
-        {
-            $query = 'DELETE FROM records WHERE id=' . $id;
-            $result = mysqli_query($link, $query) or die(mysqli_error($link));
+        $query = 'INSERT INTO ads SET title=\'' . $_POST['title'] . '\', text=\'' . $_POST['ad'] . '\',
+            timeup = NOW(), user = \'' . $user_id . '\', ';
 
-        }
+        mysqli_query($link, $query);
     }
 
-    $query = 'SELECT * FROM records WHERE approved = 0 ORDER BY time DESC';
+    $query = 'SELECT * FROM ads';
 
 //Делаем запрос к БД, результат запроса пишем в $result:
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
@@ -53,7 +40,7 @@ if (isset($_SESSION['auth']) ) {
 if (empty($data))
 {
     ?>
-    <p>Нет анекдотов, ожидающих доступа.</p>
+    <p>У вас нет активных объявлений</p>
     <?php
 }
 
