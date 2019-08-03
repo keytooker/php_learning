@@ -17,6 +17,10 @@ if ( isset($_GET['categoryid']) and ($_SESSION['auth'] === true) )
         </form>
     </div>';
 }
+else
+{
+    $content = '<p>Пожалуйста, залогиньтесь</p>';
+}
 
 
 

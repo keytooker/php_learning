@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 02 2019 г., 17:14
+-- Время создания: Авг 03 2019 г., 17:43
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -42,7 +42,15 @@ CREATE TABLE `ads` (
 --
 
 INSERT INTO `ads` (`id`, `title`, `text`, `timeup`, `user`, `category`) VALUES
-(1, 'Lego', 'Продам Lego', '2019-07-09 03:00:00', 1, 3);
+(1, 'Lego', 'Продам Lego', '2019-08-03 16:59:59', 1, 3),
+(2, 'КУкла', 'Маша', '2019-08-03 14:14:22', 1, 3),
+(3, 'Книга', 'кулинарная', '2019-08-03 17:38:52', 1, 1),
+(4, 'Кукла', 'Даша', '2019-08-03 14:16:38', 1, 3),
+(5, 'Car', 'supercar', '2019-08-01 16:59:36', 1, 2),
+(6, '|Vfib', 'vfalkdjfalkdfsald', '2019-08-02 17:01:17', 2, 2),
+(7, 'Штука', 'Ерундовина для полива цветов', '2019-08-03 17:31:16', 2, 2),
+(8, 'Штука', 'Ерундовина для полива цветов', '2019-08-03 17:31:32', 2, 2),
+(9, 'Audi 100', 'В хорошем состоянии', '2019-08-03 17:38:45', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -81,7 +89,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `password`) VALUES
-(1, 'test', '$2y$10$GC5XWghAuZVDwz1A29bKgeJbx2pr8AmtqpTYn3XcoGBHaJ//x.y3W');
+(1, 'test', '$2y$10$GC5XWghAuZVDwz1A29bKgeJbx2pr8AmtqpTYn3XcoGBHaJ//x.y3W'),
+(2, 'mivi', '$2y$10$KL00KAbaS/Pq0lACkuMj1uT.u.UO3om6L6qDTE3GjJtCFarpXW.AS');
 
 --
 -- Индексы сохранённых таблиц
@@ -113,7 +122,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
@@ -125,7 +134,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

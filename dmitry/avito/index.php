@@ -87,19 +87,19 @@ $content .=
 <div class="note">';
 
 $from = ($page - 1) * $notes_on_page;
-//$query = 'SELECT * FROM ads WHERE id > 0 ORDER BY time DESC LIMIT ' . $from .',' . $notes_on_page;
-$query = 'SELECT * FROM ads WHERE id > 0 ORDER BY id DESC LIMIT ' . $from . ',' . $notes_on_page;
+$query = 'SELECT * FROM ads WHERE id > 0 ORDER BY timeup DESC LIMIT ' . $from . ',' . $notes_on_page;
 $result = mysqli_query($link, $query) or die(mysqli_error($link));
 
 for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row) ;
 
 foreach ($data as $elem) {
     $content .= '<p>
-            <span class="date">' . $elem['time'] . '</span>
+            <span class="date">' . $elem['timeup'] . '</span>
+            <span class="name">' . $elem['title'] . '</span>
             <span class="name">' . $elem['text'] . '</span>
         </p>
 
-        <p>' . $elem['message'] . '</p';
+        <p>' . $elem['message'] . '</p>';
 
 }
 

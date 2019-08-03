@@ -35,3 +35,4 @@ foreach($data as $record)
     create_link($record['url'], $record['title']);
 }
 */
+?>
