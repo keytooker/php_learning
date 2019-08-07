@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74503fc1-ab81-4628-be41-37a9783ef6be" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../0/.idea/1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../0/Students.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../57-88/properties.php" beforeDir="false" afterPath="$PROJECT_DIR$/../57-88/properties.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ads.php" beforeDir="false" afterPath="$PROJECT_DIR$/ads.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,20 +21,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
+            <state relative-caret-position="289">
               <caret line="17" column="62" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="62" />
-              <folding>
-                <element signature="e#105#112#1" expanded="true" />
-              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ads.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ads.php">
+        <entry file="file://$PROJECT_DIR$/../57-88/properties.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+            <state relative-caret-position="697">
+              <caret line="41" column="70" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
+              <folding>
+                <element signature="e#6#526#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="323">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -47,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+            <state relative-caret-position="680">
+              <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -56,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="38" column="40" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="40" />
+            <state relative-caret-position="612">
+              <caret line="38" column="40" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -65,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../anecdotes/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="125" column="77" lean-forward="true" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="77" />
+            <state relative-caret-position="2125">
+              <caret line="125" column="77" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -74,13 +87,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminlogin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="340">
               <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>INSERT</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\OSPanel\domains\php.learning\dmitry\avito</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -94,12 +115,13 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin.php" />
         <option value="$PROJECT_DIR$/ads.php" />
+        <option value="$PROJECT_DIR$/../57-88/properties.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1786" />
-    <option name="y" value="868" />
+    <option name="x" value="1264" />
+    <option name="y" value="688" />
     <option name="width" value="2602" />
     <option name="height" value="2016" />
   </component>
@@ -109,40 +131,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="avito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="avito" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="avito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="avito" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="avito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="avito" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="avito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="avito" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="avito" type="b2602c69:ProjectViewProjectNode" />
-              <item name="avito" type="462c0819:PsiDirectoryNode" />
-              <item name="elems" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,18 +168,19 @@
       <workItem from="1564590706468" duration="18000" />
       <workItem from="1564664366203" duration="4610000" />
       <workItem from="1564745787894" duration="20000" />
-      <workItem from="1564745809964" duration="3288000" />
+      <workItem from="1564745809964" duration="3548000" />
+      <workItem from="1565169590405" duration="1594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8185000" />
+    <option name="totallyTimeSpent" value="10039000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="893" y="434" width="1301" height="1008" extended-state="0" />
+    <frame x="632" y="344" width="1301" height="1008" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25744167" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2614642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -259,53 +249,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
+        <state relative-caret-position="289">
           <caret line="17" column="62" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="62" />
-          <folding>
-            <element signature="e#105#112#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../anecdotes/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="125" column="77" lean-forward="true" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminlogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="38" column="40" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="40" />
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+        <state relative-caret-position="680">
+          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="38" column="40" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../anecdotes/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="77" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminlogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ads.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../57-88/properties.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="70" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
+          <folding>
+            <element signature="e#6#526#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
