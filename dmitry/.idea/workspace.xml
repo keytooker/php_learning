@@ -52,14 +52,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/57-88/73.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-              <folding>
-                <element signature="e#7#869#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="-920">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/57-88/74.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="74" selection-end-line="74" />
             </state>
           </provider>
         </entry>
@@ -81,6 +87,7 @@
         <option value="$PROJECT_DIR$/57-88/70.php" />
         <option value="$PROJECT_DIR$/57-88/71.php" />
         <option value="$PROJECT_DIR$/57-88/73.php" />
+        <option value="$PROJECT_DIR$/57-88/74.php" />
       </list>
     </option>
   </component>
@@ -148,12 +155,12 @@
       <workItem from="1564590720256" duration="1871000" />
       <workItem from="1564823664072" duration="8147000" />
       <workItem from="1565186183594" duration="1537000" />
-      <workItem from="1565262960037" duration="2876000" />
+      <workItem from="1565262960037" duration="5298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14575000" />
+    <option name="totallyTimeSpent" value="16997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="138" y="349" width="1319" height="499" extended-state="0" />
@@ -264,11 +271,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/57-88/73.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-          <folding>
-            <element signature="e#7#869#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-920">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/57-88/74.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
