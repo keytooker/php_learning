@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dmitry.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/guestbook.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/lesson45.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avito/.idea/workspace.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +40,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/57-88/71.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+            <state relative-caret-position="187">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
                 <element signature="e#7#221#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/57-88/73.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+              <folding>
+                <element signature="e#7#869#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,12 +80,13 @@
         <option value="$PROJECT_DIR$/avito/index.php" />
         <option value="$PROJECT_DIR$/57-88/70.php" />
         <option value="$PROJECT_DIR$/57-88/71.php" />
+        <option value="$PROJECT_DIR$/57-88/73.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="638" />
-    <option name="y" value="684" />
+    <option name="x" value="276" />
+    <option name="y" value="698" />
     <option name="width" value="2638" />
     <option name="height" value="998" />
   </component>
@@ -147,15 +148,15 @@
       <workItem from="1564590720256" duration="1871000" />
       <workItem from="1564823664072" duration="8147000" />
       <workItem from="1565186183594" duration="1537000" />
-      <workItem from="1565262960037" duration="403000" />
+      <workItem from="1565262960037" duration="2876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12102000" />
+    <option name="totallyTimeSpent" value="14575000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="319" y="342" width="1319" height="499" extended-state="0" />
+    <frame x="138" y="349" width="1319" height="499" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16415544" />
@@ -253,10 +254,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/57-88/71.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        <state relative-caret-position="187">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="e#7#221#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/57-88/73.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+          <folding>
+            <element signature="e#7#869#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
