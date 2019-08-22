@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/57-88/85.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57-88/86.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,11 +58,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/57-88/85.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+            <state relative-caret-position="414">
+              <caret line="46" column="4" lean-forward="true" selection-end-line="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/57-88/86.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -92,6 +102,7 @@
         <option value="$PROJECT_DIR$/57-88/82.php" />
         <option value="$PROJECT_DIR$/57-88/84.php" />
         <option value="$PROJECT_DIR$/57-88/85.php" />
+        <option value="$PROJECT_DIR$/57-88/86.php" />
       </list>
     </option>
   </component>
@@ -168,12 +179,12 @@
       <workItem from="1565283673841" duration="83000" />
       <workItem from="1566301945664" duration="2852000" />
       <workItem from="1566373316363" duration="1408000" />
-      <workItem from="1566458632996" duration="7345000" />
+      <workItem from="1566458632996" duration="8095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28685000" />
+    <option name="totallyTimeSpent" value="29435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="917" y="433" width="1618" height="745" extended-state="0" />
@@ -324,8 +335,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/57-88/85.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        <state relative-caret-position="414">
+          <caret line="46" column="4" lean-forward="true" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/57-88/86.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
         </state>
       </provider>
     </entry>
