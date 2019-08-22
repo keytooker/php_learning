@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/57-88/82.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/57-88/84.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57-88/85.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/57-88/84.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="187">
+              <caret line="11" column="5" lean-forward="true" selection-end-line="118" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/57-88/85.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="584">
+              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -83,12 +91,13 @@
         <option value="$PROJECT_DIR$/57-88/81.php" />
         <option value="$PROJECT_DIR$/57-88/82.php" />
         <option value="$PROJECT_DIR$/57-88/84.php" />
+        <option value="$PROJECT_DIR$/57-88/85.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="894" />
-    <option name="y" value="1216" />
+    <option name="x" value="1834" />
+    <option name="y" value="866" />
     <option name="width" value="3236" />
     <option name="height" value="1490" />
   </component>
@@ -159,15 +168,15 @@
       <workItem from="1565283673841" duration="83000" />
       <workItem from="1566301945664" duration="2852000" />
       <workItem from="1566373316363" duration="1408000" />
-      <workItem from="1566458632996" duration="6113000" />
+      <workItem from="1566458632996" duration="7345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27453000" />
+    <option name="totallyTimeSpent" value="28685000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="447" y="608" width="1618" height="745" extended-state="0" />
+    <frame x="917" y="433" width="1618" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1" />
@@ -308,8 +317,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/57-88/84.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-end-line="118" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/57-88/85.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
         </state>
       </provider>
     </entry>
