@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c5154a7-ab8d-4873-9513-fa7eb473c85b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/99.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/99.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="45" column="97" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -62,6 +61,7 @@
         <option value="$PROJECT_DIR$/96.php" />
         <option value="$PROJECT_DIR$/97.php" />
         <option value="$PROJECT_DIR$/99.php" />
+        <option value="$PROJECT_DIR$/100.php" />
       </list>
     </option>
   </component>
@@ -94,6 +94,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trates" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -120,16 +121,15 @@
       <option name="presentableId" value="Default" />
       <updated>1566496812752</updated>
       <workItem from="1566496814010" duration="858000" />
-      <workItem from="1566802889763" duration="1425000" />
+      <workItem from="1566802889763" duration="2461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2283000" />
+    <option name="totallyTimeSpent" value="3319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="942" y="260" width="1497" height="823" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25364837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -177,10 +177,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/100.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/99.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="45" column="97" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
