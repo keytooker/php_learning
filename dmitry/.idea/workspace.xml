@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/89-98/95.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2bdaaa76-ab4c-4e1d-bba0-009161363f96" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/89-98/95.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -158,16 +155,15 @@
       <workItem from="1566301945664" duration="2852000" />
       <workItem from="1566373316363" duration="1408000" />
       <workItem from="1566458632996" duration="13542000" />
-      <workItem from="1566546731771" duration="1127000" />
+      <workItem from="1566546731771" duration="2430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36009000" />
+    <option name="totallyTimeSpent" value="37312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="850" y="270" width="1618" height="745" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10128205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -356,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/89-98/95.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-end-line="101" />
         </state>
       </provider>
     </entry>
