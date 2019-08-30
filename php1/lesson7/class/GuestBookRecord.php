@@ -6,5 +6,10 @@ class GuestBookRecord
         $this->message = $m;
     }
 
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
     protected $message;
 }
