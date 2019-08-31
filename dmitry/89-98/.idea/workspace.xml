@@ -14,8 +14,8 @@
       <file leaf-file-name="94.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/94.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="65" column="64" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+            <state relative-caret-position="440">
+              <caret line="20" column="21" lean-forward="true" selection-end-line="65" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -89,16 +89,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566496812752</updated>
-      <workItem from="1566496814010" duration="858000" />
+      <workItem from="1566496814010" duration="1625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="858000" />
+    <option name="totallyTimeSpent" value="1625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="162" width="1940" height="998" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -130,8 +129,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/94.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="65" column="64" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+        <state relative-caret-position="440">
+          <caret line="20" column="21" lean-forward="true" selection-end-line="65" selection-end-column="64" />
         </state>
       </provider>
     </entry>
