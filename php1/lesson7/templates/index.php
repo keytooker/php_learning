@@ -8,9 +8,22 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Гостевая книга</h1>
+
+<p>
+    <a href="/php1/lesson7/index.php">На главную</a>
+</p>
+
 <?php
-$records = $this->data['gb']->getAllRecords();
+session_start();
+$title = $_SESSION['title'];
+$action = $_SESSION['action'];
+$type = $_SESSION['type'];
+?>
+
+<h1><?= $title; ?></h1>
+
+<?php
+$records = $this->getData()[$type]->getData();
 foreach ($records as $onerec)
 {
     ?>
@@ -21,7 +34,7 @@ foreach ($records as $onerec)
 <?php
 }
 ?>
-<form action="/add.php" method="post">
+<form action="<?= $action; ?>" method="post">
     <textarea name="message"></textarea>
     <br>
     <button type="submit">Добавить</button>
