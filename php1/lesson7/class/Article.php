@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/Record.php';
 
-class GuestBookRecord extends Record
+class Article extends Record
 {
     public function __construct(string $m)
     {

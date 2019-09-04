@@ -7,12 +7,12 @@ class View
         return $this->data;
     }
 
-    public function display($template)
+    public function display(string $template)
     {
         include $template;
     }
 
-    public function render($template)
+    public function render(string $template)
     {
         ob_start();
         include $template;
@@ -21,7 +21,7 @@ class View
         return $content;
     }
 
-    public function add($key, $value)
+    public function add(string $key, TextFile $value)
     {
         $this->data[$key] = $value;
     }
